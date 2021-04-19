@@ -2,28 +2,26 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-def dgp4(n):
+def dgp3(n):
     np.random.seed()
     p=[1./2, 1./2]
     d = np.random.choice([0, 1], size=(n,1), p=p)
+    d_alt = (d-1)*-1
     x1 = np.random.normal(loc = 0.0, scale = 1.0, size = (n,1))
     x2 = np.random.normal(loc = 0.0, scale = 1.0, size = (n,1))
     x3 = np.random.normal(loc = 0.0, scale = 1.0, size = (n,1))
     x4 = np.random.normal(loc = 0.0, scale = 1.0, size = (n,1))    
-    e = np.random.normal(loc = 0.0, scale = 0.01, size = (n,1))
+    e = np.random.normal(loc = 0.0, scale = 0.1, size = (n,1))
     #print(x1)
     ind = np.zeros((n,1))
     #print(d)
     ind[np.where(x1 >= 0)] = 1
     #print(ind)
     y1 = np.add(d*-1, np.multiply(2, np.multiply(ind,d)))
-    #print(y1)
-    y2 = np.add(y1, x2)
-    y3 = np.add(y2, x3)
-    y4 = np.add(y3, x4)
-    y = np.add(y4, e)
-
-
+    y1_alt = np.add(d_alt*-1, np.multiply(2, np.multiply(ind,d_alt)))
+    
+    y = np.add(np.add(np.add(np.add(y1,x2),x3),x4),e)
+    y_alt = np.add(np.add(np.add(np.add(y1_alt,x2),x3),x4),e)
 
     X = np.concatenate((x1,x2), axis=1)
     X = np.concatenate((X,x3), axis=1)
