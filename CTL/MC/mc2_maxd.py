@@ -13,7 +13,7 @@ from sklearn.metrics import mean_squared_error as mse
 def MC_MSE_2(x_train, x_test, y_train, y_test, treat_train, treat_test, nomin_test):
 
     # adaptive CT (Athey and Imbens, PNAS 2016)
-    ctl = CausalTree(honest=True, weight=0.0, split_size=0.0) #which type of tree to call
+    ctl = CausalTree(honest=True, weight=0.0, split_size=0.0, max_depth = 1) #which type of tree to call
     ctl.fit(x_train, y_train, treat_train, nomin_test = nomin_test) #select est size when fitting
     ctl.prune()
     ctl_predict = ctl.predict(x_test)
