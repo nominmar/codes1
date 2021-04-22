@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-def dgp6(n, std_e):
+def dgp6(n, var_e):
     np.random.seed()
     #treatment (randomly assigned)
     d = np.random.choice([0, 1], size=(n,1), p=[1./2, 1./2])
@@ -16,7 +16,7 @@ def dgp6(n, std_e):
     #covariates (irrelevant)
     x6 = np.random.normal(loc = 0.0, scale = 1.0, size = (n,1))
     #error term
-    e = np.random.normal(loc = 0.0, scale = std_e, size = (n,1))
+    e = np.random.normal(loc = 0.0, scale = var_e, size = (n,1))
 
     #indicator functions
     ind1 = np.zeros((n,1))
