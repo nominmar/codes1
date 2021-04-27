@@ -66,7 +66,7 @@ def dgp_ate4_int(n, var_e):
     ind2[np.where(x2 >= 0)] = 1
     ind3[np.where((x1 >= 0) & (x2 >= 0))] = 1
 
-    y = np.add(np.add(np.add(np.add(np.add(d*-2, np.multiply(np.add(np.add(3*ind1, ind2), ind3),d)),x3),x4),x5),e)
+    y = np.add(np.add(np.add(np.add(np.add(d*-3, np.multiply(np.add(np.add(4*ind1, ind2), ind3),d)),x3),x4),x5),e)
     X = np.concatenate((x1,x2,x3,x4,x5,x6), axis=1)
     
     x_train, x_test, y_train, y_test, treat_train, treat_test = train_test_split(X, y, d, test_size=0.5)
