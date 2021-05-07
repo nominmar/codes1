@@ -101,10 +101,8 @@ def dgp_ate8(n, var_e):
 
     y = np.add(np.add(np.add(np.add(d*-5, np.multiply(np.add(np.add(6*ind1, 2.5*ind2),1.5*ind3),d)),x4),x5),e)
     X = np.concatenate((x1,x2,x3,x4,x5,x6), axis=1)
-
-    x_train, x_test, y_train, y_test, treat_train, treat_test = train_test_split(X, y, d, test_size=0.5)
     
-    return x_train, x_test, y_train, y_test, treat_train, treat_test
+    return X, y, d
 
 
 def dgp_ate4_test(n, var_e):

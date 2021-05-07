@@ -20,6 +20,4 @@ def dgp4(n, var_e):
 
 
     #X = np.concatenate((X,d), axis = 1)
-    x_train, x_test, y_train, y_test, treat_train, treat_test = train_test_split(X, y, d, test_size=0.5)
-
-    return x_train, x_test, y_train, y_test, treat_train, treat_test
+    return X, y, d
